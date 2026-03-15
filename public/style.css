@@ -1,0 +1,330 @@
+:root {
+  --bg: #0b1220;
+  --bg-soft: #132033;
+  --panel: rgba(10, 18, 32, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --text: #f4efe7;
+  --muted: #d7ccb9;
+  --accent: #f3b66a;
+  --accent-soft: rgba(243, 182, 106, 0.18);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(243, 182, 106, 0.18), transparent 28%),
+    linear-gradient(180deg, #10203a 0%, #0b1220 45%, #090e18 100%);
+}
+
+a,
+button {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 0;
+  overflow-x: hidden;
+  background: rgba(7, 11, 20, 0.94);
+  backdrop-filter: blur(12px);
+  transition: width 0.45s ease;
+  z-index: 100;
+}
+
+.overlay-content {
+  display: grid;
+  gap: 1rem;
+  width: min(420px, 100%);
+  margin: 9rem auto 0;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.overlay a {
+  display: block;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: var(--text);
+  border-color: var(--panel-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 3.5rem;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(4, 8, 15, 0.78), rgba(4, 8, 15, 0));
+}
+
+.brand {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.menu-button {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 54px;
+  height: 54px;
+  padding: 0 11px;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text);
+  border-radius: 999px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.change .bar1 {
+  transform: translate(0, 9px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -9px) rotate(45deg);
+}
+
+.overallslide {
+  display: grid;
+  gap: 0;
+}
+
+.hero,
+.people-section {
+  min-height: 100vh;
+}
+
+.hero {
+  display: grid;
+  place-items: center;
+  padding: 7rem 1.5rem 3rem;
+}
+
+.hero-panel {
+  width: min(1100px, 100%);
+  padding: clamp(2rem, 4vw, 4rem);
+  border: 1px solid var(--panel-border);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    url("https://www.mrlocalhistory.org/wp-content/uploads/2019/04/Charter_Day_Ariel.jpg") center/cover;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-kicker,
+.section-kicker,
+.person-card-year {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.hero-title,
+.section-title {
+  margin-top: 0.85rem;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+}
+
+.hero-copy {
+  width: min(600px, 100%);
+  margin-top: 1.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 2rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1a120a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.people-section {
+  padding: 6.5rem 1.5rem 4rem;
+}
+
+.section-header {
+  width: min(1100px, 100%);
+  margin: 0 auto 2rem;
+}
+
+.section-copy {
+  width: min(640px, 100%);
+  margin-top: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 520px);
+  gap: 1.5rem;
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.slider::-webkit-scrollbar {
+  height: 10px;
+}
+
+.slider::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.person-card {
+  min-height: 560px;
+  scroll-snap-align: start;
+}
+
+.person-card-inner {
+  display: grid;
+  grid-template-rows: 280px 1fr;
+  height: 100%;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+}
+
+.person-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-card-copy {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 1.5rem;
+}
+
+.person-card-title {
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.person-card-description {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.person-card-error .person-card-inner {
+  place-items: center;
+  grid-template-rows: 1fr;
+}
+
+@media (max-width: 900px) {
+  .hero-title,
+  .section-title {
+    line-height: 1;
+  }
+
+  .slider {
+    grid-auto-columns: minmax(280px, 86vw);
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 1rem;
+  }
+
+  .hero,
+  .people-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-panel {
+    border-radius: 24px;
+  }
+
+  .person-card {
+    min-height: 520px;
+  }
+
+  .person-card-inner {
+    grid-template-rows: 240px 1fr;
+  }
+}

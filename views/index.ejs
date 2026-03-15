@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <script src="main.js" defer></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" id="closeNavButton" class="closebtn">&times;</a>
+        <div class="overlay-content">
+          <a href="#community">Community</a>
+          <a href="#people">People</a>
+          <a href="#people">Explore</a>
+        </div>
+      </div>
+
+      <header class="topbar">
+        <p class="brand">Basking Ridge</p>
+        <button id="menuButton" class="menu-button" type="button" aria-label="Open navigation menu">
+          <span class="bar1"></span>
+          <span class="bar2"></span>
+          <span class="bar3"></span>
+        </button>
+      </header>
+
+      <main class="overallslide">
+        <section class="hero" id="community">
+          <div class="hero-panel">
+            <p class="hero-kicker">Local Stories</p>
+            <h1 class="hero-title">The Basking Ridge Community</h1>
+            <p class="hero-copy">
+              A quick look at the artists, athletes, writers, and public figures connected to Basking
+              Ridge, gathered into a simple story-led showcase.
+            </p>
+            <a class="hero-link" href="#people">Meet the people</a>
+          </div>
+        </section>
+
+        <section class="people-section" id="people-section">
+          <div class="section-header">
+            <p class="section-kicker">Featured Residents</p>
+            <h2 class="section-title">Our People</h2>
+            <p class="section-copy">
+              Scroll sideways through the collection to browse notable people associated with the
+              community.
+            </p>
+          </div>
+          <div class="slider" id="people"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
